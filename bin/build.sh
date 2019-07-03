@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GSD5_DIR=`pwd`
-TIDDLYWIKI5_DIR=$GSD5_DIR/../TiddlyWiki5
+TIDDLYWIKI5_DIR=$GSD5_DIR/node_modules/tiddlywiki
 
 OUTPUT_DIR=$GSD5_DIR/output
 OUTPUT_FILE=gsd5-empty.html
