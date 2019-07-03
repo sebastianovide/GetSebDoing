@@ -1,6 +1,7 @@
 language: node_js
 
 before_deploy:
+  - ls -la
   - export TRAVIS_TAG=`cat output/APP_VERSION` && echo $TRAVIS_TAG
 
 deploy:
