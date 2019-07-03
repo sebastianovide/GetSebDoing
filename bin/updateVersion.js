@@ -13,3 +13,4 @@ const pluginInfoPath = "./plugins/gsd5/core/plugin.info";
 const pluginInfo = JSON.parse(fs.readFileSync(pluginInfoPath));  
 pluginInfo.version = versionArray.join(".")
 fs.writeFileSync(pluginInfoPath, JSON.stringify(pluginInfo, "", 2))
+fs.writeFileSync("./output/APP_VERSION", pluginInfo.version)

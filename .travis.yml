@@ -1,5 +1,8 @@
 language: node_js
 
+before_deploy:
+  - export TRAVIS_TAG=`cat output/APP_VERSION` && echo $TRAVIS_TAG
+
 deploy:
   provider: releases
   api_key:
