@@ -1,5 +1,7 @@
 # GSEBD
 
+[![Build Status](https://travis-ci.org/sebastianovide/GettingSebDoing.svg?branch=master)](https://travis-ci.org/sebastianovide/GettingSebDoing)
+
 A Getting-Things-Done tool for the TiddlyWiki5 environment.
 
 GSEBD, or Getting-Seb-Doing, is a fork of [GSD5](https://github.com/roma0104/gsd5). It is a plugin for [TiddlyWiki5](http://tiddlywiki.com) *[(github)](https://github.com/Jermolene/TiddlyWiki5/)* that attempts to combine the workflow and philosophy of David Allen's **[Getting Things Done](http://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0142000280/)** with the TiddlyWiki5 platform.  GSEBD is heavily influenced by [mGSD](http://mgsd.tiddlyspot.com/) for TiddlyWiki classic.
