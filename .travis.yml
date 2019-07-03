@@ -3,7 +3,7 @@ language: node_js
 branches:
   only:
     - master
-  
+
 before_deploy:
   - ls -la
   - export TRAVIS_TAG=v`cat output/APP_VERSION`
@@ -15,4 +15,4 @@ deploy:
   file: output/gsd5-empty.html
   skip_cleanup: true
   on:
-    repo: sebastianovide/GetSebDoing
+    repo: sebastianovide/GettingSebDoing
