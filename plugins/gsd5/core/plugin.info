@@ -3,6 +3,5 @@
   "description": "TiddlyWiki5 Getting Stuff Done plugin",
   "author": "Roma Hicks",
   "core-version": ">=5.1.8",
-  "list": "readme",
-  "version": "0.6.2"
+  "list": "readme"
 }
