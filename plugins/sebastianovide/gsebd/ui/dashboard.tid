@@ -5,6 +5,7 @@ $:/config/GSEBDLists/visibility/$(listItem)$
 \end
 
 <hr/>
+
 ![[Vision]]
 
 !!<$list filter="[[Vision]is[tiddler]]" emptyMessage="Define your vision here !">
@@ -12,6 +13,7 @@ $:/config/GSEBDLists/visibility/$(listItem)$
 </$list>
 
 <hr/>
+
 !Areas
 
 <$list filter="[field:gsd_type[area]]">
@@ -20,6 +22,7 @@ $:/config/GSEBDLists/visibility/$(listItem)$
 </$list>
 
 <hr/>
+
 <$list filter="[all[shadows+tiddlers]tag[$:/tags/GSEBDLists]!has[draft.of]]" variable="listItem">
 
   <$reveal state=<<config-lists>> type="match" text="show" default="hide">
