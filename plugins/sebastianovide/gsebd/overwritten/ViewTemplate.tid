@@ -7,6 +7,7 @@ tc-tiddler-frame tc-tiddler-view-frame $(missingTiddlerClass)$ $(shadowTiddlerCl
 "tag<currentTiddler>"
 \end
 
+<<<<<<< Updated upstream
 <$set name="gsdpanelState" value=<<qualify "$:/state/gsd/gsdpanel">>>
 <$set name="storyTiddler" value=<<currentTiddler>>>
 <$set name="tiddlerInfoState" value=<<qualify "$:/state/popup/tiddler-info">>>
@@ -26,3 +27,17 @@ tc-tiddler-frame tc-tiddler-view-frame $(missingTiddlerClass)$ $(shadowTiddlerCl
 </$set>
 </$set>
 </$set>
+=======
+<$set name="gsdpanelState" value=<<qualify "$:/state/gsd/gsdpanel">>><$set name="storyTiddler" value=<<currentTiddler>>><$set name="tiddlerInfoState" value=<<qualify "$:/state/popup/tiddler-info">>><$tiddler tiddler=<<currentTiddler>>><div class=<<frame-classes>>>
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!has[draft.of]]" variable="listItem">
+  <$transclude tiddler=<<listItem>>/>
+</$list>
+
+<!-- Areas -->
+<$list filter="[is[current]field:gsd_type[area]]">
+  <$macrocall $name="gsebd-list" title="Projects" gsd_type="project" gsd_status="none" gsd_complete="false" realmAware="true" sort="title" order="ascending" groupBy="none" customFilter= <<area-filter>> >
+</$list>
+
+</div>
+</$tiddler></$set></$set></$set>
+>>>>>>> Stashed changes
