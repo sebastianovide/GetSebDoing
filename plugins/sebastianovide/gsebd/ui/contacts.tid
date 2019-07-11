@@ -1,3 +1,0 @@
-title: Contacts
-
-<$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/contacts-list"/>
