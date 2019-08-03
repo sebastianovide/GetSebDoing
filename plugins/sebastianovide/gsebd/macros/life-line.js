@@ -31,7 +31,15 @@ function validRetirment(retirementAge) {
 Run the macro
 */
 exports.run = function(dob, life_expectation, retirement_age) {
-  debugger 
+  // TODO: draw the milestones
+  // debugger 
+  
+  // find tiddlers tagged $:/plugins/sebastianovide/gsebd/ui/pd/life-line 
+  // $tw.wiki.forEachTiddler( (title,tiddler) => {
+  //   debugger 
+  // 
+  //   console.log(title,tiddler)
+  // })
   
   dob = new Date(dob);
   const millsPerYear = 365.25 * 24 * 60 * 60 * 1000;

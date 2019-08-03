@@ -2,13 +2,46 @@ title: $:/plugins/sebastianovide/gsebd/ui/pd/life-line
 tags: PD
 caption: Life Line
 
+\define showIcon(title, icon, age)
+$title$ {{$icon$}} at $age$
+\end
+
 <div style="text-align: center;">
 
   !{{$:/plugins/sebastianovide/gsebd/ui/pd/life-line!!caption}} <<helpButton $:/plugins/sebastianovide/gsebd/popups/helpLifeLine """It could be enlighting to so how much time we have left...""">>
 
-  Your date of birth <$edit-text tiddler="me" field="dob" type="date" size="10"/> <br>
-  Your life expectation<$edit-text tiddler="me" field="life_expectation" size="3" type="number"/><br>
-  Your retirement age<$edit-text tiddler="me" field="retirement_age" size="3" type="number"/><br>
+  <div class="row">
+    <div class="col">
+      Your date of birth: <$edit-text tiddler="me" field="dob" type="date" size="10"/> <br>
+      Your life expectation: <$edit-text tiddler="me" field="life_expectation" size="3" type="number"/><br>
+      Your retirement age: <$edit-text tiddler="me" field="retirement_age" size="3" type="number"/><br>
+    </div>
+    <div class="col">
+      <$list filter="[tag[$:/plugins/sebastianovide/gsebd/ui/pd/life-line]sort[age]]">
+        <$macrocall $name="showIcon" icon={{!!icon}} title={{!!title}} age={{!!age}}/> 
 
+        <$button class="tc-btn-invisible">
+          <$action-deletetiddler $tiddler=<<currentTiddler>>/>
+          {{$:/core/images/delete-button}}
+        </$button>
+        <br>
+      </$list>
+      Event: <$edit-text tiddler="$:/state/new-event-title" size="15" type="text" tag="input" default=""/>
+      Age: <$edit-text tiddler="$:/state/new-event-age" size="3" type="number" tag="input" default=""/>
+      icon: <$select tiddler='$:/state/new-event-icon'>
+              <$list filter='[all[shadows+tiddlers]tag[$:/tags/Image]]'>
+                <option><<currentTiddler>></option>
+              </$list>
+            </$select><$transclude tiddler={{$:/state/new-event-icon}}/>  
+      <$button>
+        <$action-createtiddler $basetitle={{$:/state/new-event-title}} tags="$:/plugins/sebastianovide/gsebd/ui/pd/life-line" age={{$:/state/new-event-age}} icon={{$:/state/new-event-icon}}/>
+        <$action-deletetiddler $tiddler="$:/state/new-event-title"/>
+        <$action-deletetiddler $tiddler="$:/state/new-event-age"/>
+        <$action-setfield $tiddler="$:/state/new-event-icon" text="$:/images/fa5/solid/question"/>
+        {{$:/core/images/new-button}}
+      </$button>
+    </div>
+  </div>
+  
   <$macrocall $name="life-line" dob={{me!!dob}} life_expectation={{me!!life_expectation}} retirement_age={{me!!retirement_age}}/>
 </div>
