@@ -1,5 +1,5 @@
 /*\
-title: gsebd-simple-list
+title: $:/plugins/sebastianovide/gsebd/modules/macros/simple-list.js
 type: application/javascript
 module-type: macro
 
@@ -9,27 +9,28 @@ Write a simple list filter by a list of tags and with a + button in the header t
 
 \*/
 
-(() => {
+(function(){
 
   exports.name = "gsebd-simple-list";
 
   exports.params = [
       {name: "title"},
-      {name: "tags"}
+      {name: "tags"},
+      {name: "excludeCurrent"}
   ];
 
-  exports.run = (title, tags) => {
-    
-    debugger
-    
+  exports.run = function(title, tags, excludeCurrent) {
+    if (!excludeCurrent) {
+      tags += "," + this.getVariable("currentTiddler")
+    }
     tags = tags.split(",").map(s => s.trim())
     
     const tag = tags[0]
     const tagsTW = tags.reduce((r, v) => r + (r === "" ? "" : " " ) + "[[" + v + "]]", "")
     const filterTags = tags.reduce((r, v) => r + (r === "" ? "" : " +" ) + "[tag[" + v + "]]", "")
-    
+  
     return `
-    <strong>    
+    <strong>          
       ${title}
       <$button class="gsd-list-new-button tc-btn-invisible">
           +
