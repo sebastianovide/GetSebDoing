@@ -4,6 +4,9 @@ type: application/javascript
 module-type: widget
 
 Marks an action or project complete and queues the next dependent action.
+
+TODO: remove this
+
 \*/
 (function() {
 
@@ -59,7 +62,7 @@ CompleteWidget.prototype.getValue = function() {
 CompleteWidget.prototype.handleChangeEvent = function() {
   this.wiki.setText(this.completeTitle, "gsd_complete", null, this.inputDomNode.checked.toString());
   var now = new Date();
-  this.wiki.setText(this.completeTitle, "gsd_comp_date", null, $tw.utils.stringifyDate(now));
+  this.wiki.setText(this.completeTitle, "modified", null, $tw.utils.stringifyDate(now));
   this.changeDependants();
   $tw.rootWidget.dispatchEvent({type: "tm-auto-save-wiki"});
 };
