@@ -2,8 +2,10 @@ title: $:/plugins/sebastianovide/gsebd/ui/pd/blockers
 tags: PD
 caption: Blockers
 
-<div>
+<div>  
+  <$macrocall $name=gsebd-accordion caption="help" body="""
   What is holding you back ? for each of them, what are you going to do about it ?
+  """/>
 
-  <<gsebd-simple-list title:"Blockers ?" tags:"Blocker" >>
+  <<gsebd-simple-list title:"Blockers ?" tags:"Blocker" showBrief:"yes">>
 </div>

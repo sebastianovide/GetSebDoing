@@ -1,7 +1,7 @@
 title: $:/plugins/sebastianovide/gsebd/modules/macros/gsebd-accordion
 tags: $:/tags/Macro
 
-\define gsebd-accordion(body, caption:"?", heading:"h2", class:"tc-message-box")
+\define gsebd-accordion(body, caption:"?", heading:"h2", class:"gsd-context-box")
   <div class="$class$">
     <$set name="revealState" value=<<qualify "$:/state/gsebd-accordion/$(currentTiddler)$/$caption$">>>
       <$heading$>
@@ -21,7 +21,7 @@ tags: $:/tags/Macro
       </$heading$>
 
       <$reveal type="match" state=<<revealState>> text="yes"  animate="yes" retain="yes">
-      $body$
+        $body$
       </$reveal>
     </$set>
   </div>

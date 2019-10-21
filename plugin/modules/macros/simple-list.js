@@ -17,10 +17,11 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "tags"},
       {name: "excludeCurrent"},
       {name: "addButton"},
-      {name: "defaultValue"}
+      {name: "defaultValue"},
+      {name: "showBrief"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue) {
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief) {
     const currentTiddler = this.getVariable("currentTiddler")
     if (!excludeCurrent) {
       tags += "," + currentTiddler
@@ -47,9 +48,27 @@ Write a simple list filter by a list of tags and with a + button in the header t
         <$edit-text tiddler="$/tmp" field="${tmpNewTiddlerField}" type="text" size="40" placeholder="enter a new ${title} here" default="${defaultValue}"/> 
       </$keyboard>`;
   
+    const briefWT = showBrief ? `
+    <span>
+    <$view/>
+    </span>` : "";
+  
     const finalWT = `
       ${titleWT}
-      <<list-links filter:"${filterTags} +[!has[draft.of]]" type:"div" subtype:"div" >>
+      
+      <div>
+        <$list filter="${filterTags} +[!has[draft.of]]">
+          <div>
+            <$link to={{!!title}}>
+              <$transclude field="caption">
+                <$view field="title"/>
+              </$transclude>              
+            </$link>
+            ${briefWT}
+          </div>
+        </$list>
+      </div>
+      
       ${addButtonWT}
     `;
                 
