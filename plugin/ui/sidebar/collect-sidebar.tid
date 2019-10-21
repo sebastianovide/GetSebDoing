@@ -3,9 +3,3 @@ tags: $:/tags/SideBar
 caption: Collect
 
 {{$:/plugins/sebastianovide/gsebd/ui/buttons/new-area}}
-
-<$list filter="[all[shadows+tiddlers]tag[$:/tags/GSEBDCollect]!has[draft.of]]">
-
-  {{currentTiddler}}
-
-</$list>

@@ -3,5 +3,5 @@ tags: $:/tags/SideBar
 caption: PD Toolbox
 
 <$list filter="[all[shadows+tiddlers]tag[PD]!has[draft.of]]">
-  <$link to={{!!title}}>{{!!caption}}</$link><br/>
+  <$link>{{!!caption}}</$link><br/>
 </$list>

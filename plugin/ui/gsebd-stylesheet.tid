@@ -187,6 +187,9 @@ tags: $:/tags/Stylesheet
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  border: 1px;
+/* border-color: black; */
+  border-style: solid;
 }
 
 .row > * {

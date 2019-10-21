@@ -20,60 +20,65 @@ $title$
 </$button>
 \end
 
+<div class="row">  
+  <div>
+    <div style="text-align: center;"> 
+      
+      !<$list filter="[[Mission Statement]is[tiddler]]" emptyMessage='<<newButton title:"Mission Statement" text:"To Be Happy every day">>' >
+    [[Mission Statement]]
+      </$list><<helpMission>>
+    </div>
 
-<div style="text-align: center;"> 
+    <div>
 
-!<$list filter="[[Mission Statement]is[tiddler]]" emptyMessage='<<newButton title:"Mission Statement" text:"To Be Happy every day">>' >
-[[Mission Statement]]
-</$list><<helpMission>>
-
-</div>
-
-!!<$list filter="[[Mission Statement]is[tiddler]]" emptyMessage="Define your mission statement here !">
-<$transclude tiddler="Mission Statement" mode="block"/>
-</$list>
-
----
-<div style="text-align: center;"> 
-
-!<$list filter="[[Vision Statement]is[tiddler]]" emptyMessage='<<newButton title:"Vision Statement" text:"To Have a Lovely Family in a lovely home">>' >
-[[Vision Statement]]
-</$list><<helpButton $:/plugins/sebastianovide/gsebd/popups/helpVision """How would your perfect life looks like ?""">>
-</div>
-
-!!<$list filter="[[Vision Statement]is[tiddler]]" emptyMessage="Define your vision statement here !">
-<$transclude tiddler="Vision Statement" mode="block"/>
-</$list>
-
----
-{{$:/plugins/sebastianovide/gsebd/ui/pd/life-line}}
-
----
-
-<div class="row">
-  <div class="col" style="text-align: center;">
-    <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/pd/areas" mode="block"/>
-  </div>
-  <div class="col" style="text-align: center;">
-    <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/pd/humanNeeds" mode="block"/>
+      !!<$list filter="[[Mission Statement]is[tiddler]]" emptyMessage="Define your mission statement here !">
+        <$transclude tiddler="Mission Statement" mode="block"/>
+      </$list>
+    </div>
   </div>
 </div>
 
----
+<div class="row">  
+  <div>
+    
+    <div style="text-align: center;"> 
+
+      !<$list filter="[[Vision Statement]is[tiddler]]" emptyMessage='<<newButton title:"Vision Statement" text:"To Have a Lovely Family in a lovely home">>' >
+      [[Vision Statement]]
+      </$list><<helpButton $:/plugins/sebastianovide/gsebd/popups/helpVision """How would your perfect life looks like ?""">>
+    </div>
+
+    !!<$list filter="[[Vision Statement]is[tiddler]]" emptyMessage="Define your vision statement here !">
+      <$transclude tiddler="Vision Statement" mode="block"/>
+    </$list>
+  </div>
+</div>
+
 <div class="row">
+  {{$:/plugins/sebastianovide/gsebd/ui/pd/life-line}}
+</div>
+
+<div class="row">
+  {{$:/plugins/sebastianovide/gsebd/ui/pd/areas}}
+  {{$:/plugins/sebastianovide/gsebd/ui/pd/humanNeeds}}
+</div>
+
+<div class="row">
+  {{$:/plugins/sebastianovide/gsebd/ui/pd/blockers}}
+</div>
+
+<div class="row">  
   {{$:/plugins/sebastianovide/gsebd/ui/lists/next-action-list}}
   {{$:/plugins/sebastianovide/gsebd/ui/lists/waiting-action-list}}
   {{$:/plugins/sebastianovide/gsebd/ui/lists/waiting-action-list-by-contact}}
   {{$:/plugins/sebastianovide/gsebd/ui/lists/future-action-list}}
 </div>
 
----
 <div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/lists/active-project-list}}
   {{$:/plugins/sebastianovide/gsebd/ui/lists/future-project-list}}
 </div>
 
----
 <div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/lists/completed-action-list}}
   {{$:/plugins/sebastianovide/gsebd/ui/lists/completed-project-list}}

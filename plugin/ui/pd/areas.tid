@@ -2,7 +2,7 @@ title: $:/plugins/sebastianovide/gsebd/ui/pd/areas
 tags: PD
 caption: Areas
 
-<div style="display: inline-block;"}>
+<div style="display: inline-block; text-align: center;"}>
 
   !Areas
 
@@ -16,17 +16,19 @@ caption: Areas
     <$wheelChart values=<<areas>> />
   </$wikify>
 
-  <div style="text-align: left;">
-    <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="""Create your first <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/buttons/new-area" /> """ >
-         <$wikify name="me_field" text=""" 
-              <$list filter="area satisfaction [<currentTiddler>] +[split[ ]join[_]lowercase[]] " variable="name">
-                <<name>>
-              </$list>
-            """>            
-            <<gsebd-satisfaction tiddler:"me" field:$(me_field)$>> 
-         </$wikify>         
-      <$link to={{!!title}}>&nbsp;<$view field="title" format="text"/></$link>  
-      <br/>
-    </$list>
+  <div style="text-align: -webkit-center;">
+    <div style="text-align: left; width: fit-content;">
+      <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="""Create your first <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/buttons/new-area" /> """ >
+           <$wikify name="me_field" text=""" 
+                <$list filter="area satisfaction [<currentTiddler>] +[split[ ]join[_]lowercase[]] " variable="name">
+                  <<name>>
+                </$list>
+              """>            
+              <<gsebd-satisfaction tiddler:"me" field:$(me_field)$>> 
+           </$wikify>         
+        <$link to={{!!title}}>&nbsp;<$view field="title" format="text"/></$link>  
+        <br/>
+      </$list>
+    </div>
   </div>
 </div>
