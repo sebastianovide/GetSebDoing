@@ -12,6 +12,7 @@ title: $:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix
 
 <$list filter="[is[current]field:gsd_type[project]]">
   <$list filter="[is[current]field:gsd_status[done]]">
+    <span class="gsd-muted">(<$view field="modified" format="relativedate"/>)</span>
     <span class="gsd-muted">{{$:/plugins/sebastianovide/gsebd/ui/buttons/delete-tiddler-button}}</span>
   </$list>
 </$list>
