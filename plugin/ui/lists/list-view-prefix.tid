@@ -12,3 +12,7 @@ title: $:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix
   <$radio tiddler=<<currentTiddler>> class="list-status future" field="gsd_status" value="future">f</$radio>
   <$radio tiddler=<<currentTiddler>> class="list-status done" field="gsd_status" value="done">d</$radio>
 </$list>
+
+<$list filter=[is[current]tag[Goal]]>
+🏁<$list filter=[is[current]!field:due_date[]]>(by {{!!due_date}})</$list><$list filter=[is[current]field:due_date[]]>(goal date not set)</$list>
+</$list>

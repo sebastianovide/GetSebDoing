@@ -62,12 +62,14 @@ Write a simple list filter by a list of tags and with a + button in the header t
       ${titleWT}
       
       <div>
-        <$list filter="${filterTW} +[!has[draft.of]]">
-          <div class="tc-menu-list-subitem">
-            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
-            <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
-            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
-          </div>
+        <$list filter="${filterTW} +[!has[draft.of]]">          
+          <$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">        
+            <div class=<<goalClass>>>
+              <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
+              <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
+              <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
+            </div>
+          </$set>
         </$list>
       </div>
       

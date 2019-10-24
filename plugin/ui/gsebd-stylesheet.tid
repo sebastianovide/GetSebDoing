@@ -66,7 +66,6 @@ tags: $:/tags/Stylesheet
 }
 
 .content-left {
-  //background-color: lightgreen;
   width: 50%;
   float: left;
 }
@@ -195,4 +194,15 @@ tags: $:/tags/Stylesheet
 .row > * {
   flex: 1 1 auto;
   padding: 10px
+}
+
+.goal {
+  background-color: lightyellow;
+  border-width: thin;
+  border-style: solid;
+  border-color: darkgray;
+}
+
+.list-item {
+  padding-bottom: 2px;
 }
