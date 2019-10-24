@@ -1,7 +1,6 @@
 title: $:/plugins/sebastianovide/gsebd/ui/buttons/new-action
 
 \define concat(prefix, postfix) $prefix$$(gsd_type)$$postfix$
-\define newHereButtonTags() [[$(gsd_area)$]]
 
 <$action-createtiddler
     $basetitle=<<concat "New " "">>
@@ -9,7 +8,6 @@ title: $:/plugins/sebastianovide/gsebd/ui/buttons/new-action
     gsd_type=<<gsd_type>>
     gsd_status=<<gsd_status>>
     gsd_project=<<gsd_project>>
-    tags=<<newHereButtonTags>>
 />
 
 <$action-sendmessage $message="tm-edit-tiddler" $param={{!!justCreated}}/>

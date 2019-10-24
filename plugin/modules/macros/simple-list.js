@@ -18,10 +18,11 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "excludeCurrent"},
       {name: "addButton"},
       {name: "defaultValue"},
-      {name: "showBrief"}
+      {name: "showBrief"},
+      {name: "fields"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief) {
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields) {
     const currentTiddler = this.getVariable("currentTiddler")
     if (!excludeCurrent) {
       tags += "," + currentTiddler
@@ -33,21 +34,25 @@ Write a simple list filter by a list of tags and with a + button in the header t
     const filterTags = tags.reduce((r, v) => r + (r === "" ? "" : " +" ) + "[tag[" + v + "]]", "")
     const tmpNewTiddlerField = `new_${currentTiddler}_${title}`.replace(/ /g,"_");
     const titleWT = title !== "" ? `<strong>${title}</strong><hr/>` : ""
-  
+    
     const saveActionsWT = `
     <$action-createtiddler
         $basetitle={{$/tmp!!${tmpNewTiddlerField}}}
         tags="${tagsTW}"
+        ${fields}
     />
-    // <$action-deletefield $tiddler="$/tmp" $field="${tmpNewTiddlerField}"/>`;
+    <$action-deletefield $tiddler="$/tmp" $field="${tmpNewTiddlerField}"/>`;
     // <$action-setfield $tiddler="$/tmp" $field="${tmpNewTiddlerField}" $value="${defaultValue}"/>`;
 
-    // TODO: I don't know how to make the default work
+    debugger
+
+    // TODO: I don't know how to make the "default value" to work
     const addButtonWT = addButton || `
       <$keyboard key="enter" actions="""${saveActionsWT}""">
         <$edit-text tiddler="$/tmp" field="${tmpNewTiddlerField}" type="text" size="40" placeholder="enter a new ${title} here" default="${defaultValue}"/> 
       </$keyboard>`;
   
+    // TODO: show only part of it... a brief
     const briefWT = showBrief ? `
     <span>
     <$view/>
@@ -58,13 +63,10 @@ Write a simple list filter by a list of tags and with a + button in the header t
       
       <div>
         <$list filter="${filterTags} +[!has[draft.of]]">
-          <div>
-            <$link to={{!!title}}>
-              <$transclude field="caption">
-                <$view field="title"/>
-              </$transclude>              
-            </$link>
-            ${briefWT}
+          <div class="tc-menu-list-subitem">
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
+            <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
           </div>
         </$list>
       </div>

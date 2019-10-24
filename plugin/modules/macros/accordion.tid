@@ -17,7 +17,7 @@ tags: $:/tags/Macro
             </$button>
           </$reveal> 
         </small>
-        $caption$
+        <span>$caption$</span>
       </$heading$>
 
       <$reveal type="match" state=<<revealState>> text="yes"  animate="yes" retain="yes">
