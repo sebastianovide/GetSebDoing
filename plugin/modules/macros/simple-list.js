@@ -19,10 +19,11 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "addButton"},
       {name: "defaultValue"},
       {name: "showBrief"},
-      {name: "fields"}
+      {name: "fields"},
+      {name: "filter"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields) {
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter) {
     const currentTiddler = this.getVariable("currentTiddler")
     if (!excludeCurrent) {
       tags += "," + currentTiddler
@@ -30,8 +31,9 @@ Write a simple list filter by a list of tags and with a + button in the header t
     tags = tags.split(",").map(s => s.trim())
     
     const tag = tags[0]
-    const tagsTW = tags.reduce((r, v) => r + (r === "" ? "" : " " ) + "[[" + v + "]]", "")
-    const filterTags = tags.reduce((r, v) => r + (r === "" ? "" : " +" ) + "[tag[" + v + "]]", "")
+    const tagsTW = tags.reduce((r, v) => r + (r === "" ? "" : " " ) + "[[" + v + "]]", "");
+    const filterTags = tags.reduce((r, v) => r + (r === "" ? "" : " +" ) + "[tag[" + v + "]]", "");
+    const filterTW = filter || filterTags;
     const tmpNewTiddlerField = `new_${currentTiddler}_${title}`.replace(/ /g,"_");
     const titleWT = title !== "" ? `<strong>${title}</strong><hr/>` : ""
     
@@ -43,8 +45,6 @@ Write a simple list filter by a list of tags and with a + button in the header t
     />
     <$action-deletefield $tiddler="$/tmp" $field="${tmpNewTiddlerField}"/>`;
     // <$action-setfield $tiddler="$/tmp" $field="${tmpNewTiddlerField}" $value="${defaultValue}"/>`;
-
-    debugger
 
     // TODO: I don't know how to make the "default value" to work
     const addButtonWT = addButton || `
@@ -62,7 +62,7 @@ Write a simple list filter by a list of tags and with a + button in the header t
       ${titleWT}
       
       <div>
-        <$list filter="${filterTags} +[!has[draft.of]]">
+        <$list filter="${filterTW} +[!has[draft.of]]">
           <div class="tc-menu-list-subitem">
             <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
             <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
