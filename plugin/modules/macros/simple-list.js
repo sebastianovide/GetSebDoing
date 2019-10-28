@@ -20,10 +20,13 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "defaultValue"},
       {name: "showBrief"},
       {name: "fields"},
-      {name: "filter"}
+      {name: "filter"},
+      {name: "groupBy", default: "none"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter) {
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy) {
+    groupBy = $tw.wiki.renderText("text/plain","text/vnd.tiddlywiki",groupBy);
+
     const currentTiddler = this.getVariable("currentTiddler")
     if (!excludeCurrent) {
       tags += "," + currentTiddler
@@ -58,24 +61,48 @@ Write a simple list filter by a list of tags and with a + button in the header t
     <$view/>
     </span>` : "";
   
-    const finalWT = `
-      ${titleWT}
+    let listsWT = "";
+    
+    const listItemWT =
+      `<$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">        
+          <div class=<<goalClass>>>
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
+            <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
+          </div>
+        </$set>`;
+    
+    if (groupBy !== "none") {
+      const type = groupBy.replace("gsd_", "");
       
-      <div>
-        <$list filter="${filterTW} +[!has[draft.of]]">          
-          <$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">        
-            <div class=<<goalClass>>>
-              <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
-              <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
-              <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
-            </div>
-          </$set>
-        </$list>
-      </div>
-      
-      ${addButtonWT}
-    `;
-                
+      listsWT =      
+         `<$list filter="[field:gsd_type[${type}]]" variable=outer>
+            <$link to=<<outer>>/><br/>
+            <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>]">
+              ${listItemWT}
+            </$list> 
+          </$list>
+          No ${type} assigned <br/>
+          <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]]">
+            ${listItemWT}
+          </$list>`;
+    } else {
+      listsWT = 
+         `<$list filter="${filterTW} +[!has[draft.of]]">          
+            ${listItemWT}
+          </$list>`;
+    }
+    
+    let finalWT = 
+      `<div>
+        ${titleWT}
+        <div>
+          ${listsWT}
+        </div>
+        
+        ${addButtonWT}
+      </div>`;
+
     return finalWT;
   };
 })();
