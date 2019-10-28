@@ -1,0 +1,5 @@
+title: Completed Dashboard
+
+<$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/completed-action-list"/>
+
+<$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/completed-project-list"/>

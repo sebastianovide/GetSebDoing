@@ -64,23 +64,27 @@ $title$
 </div>
 
 <div class="row">
+  <div>
+    <<gsebd-simple-list title:"Goals" tags:"Goal" showBrief:"yes" addButton:"<div></div>" excludeCurrent="true">>
+  </div>
+</div>
+
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/blockers}}
 </div>
 
-<div class="row">  
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/next-action-list}}
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/waiting-action-list}}
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/waiting-action-list-by-contact}}
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/future-action-list}}
+<div class="row">
+  {{Action Dashboard}}  
 </div>
 
 <div class="row">
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/active-project-list}}
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/future-project-list}}
+  {{Project Dashboard}}
 </div>
 
 <div class="row">
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/completed-action-list}}
-  {{$:/plugins/sebastianovide/gsebd/ui/lists/completed-project-list}}
+  {{Completed Dashboard}}
+</div>
+
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/lists/contacts-list}}
 </div>
