@@ -77,14 +77,18 @@ Write a simple list filter by a list of tags and with a + button in the header t
       
       listsWT =      
          `<$list filter="[field:gsd_type[${type}]]" variable=outer>
-            <$link to=<<outer>>/><br/>
-            <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>]">
-              ${listItemWT}
-            </$list> 
+           <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>] +[limit[1]]" variable=nothing>
+              <$link to=<<outer>>/><br/>
+              <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>]">
+                ${listItemWT}
+              </$list> 
+            </$list>   
           </$list>
-          No ${type} assigned <br/>
-          <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]]">
-            ${listItemWT}
+          <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]] +[limit[1]]" variable=nothing>
+            No ${type} assigned <br/>
+            <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]]">
+              ${listItemWT}
+            </$list>
           </$list>`;
     } else {
       listsWT = 
