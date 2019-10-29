@@ -6,7 +6,7 @@ module-type: macro
 Write a simple list filter by a list of tags and with a + button in the header to create a new item.
 
 @tags: is a list of tags coma separated. It accept spaces
-
+@addButton: if it is none, none add button will be added. If it is empy, the default will be used. Othwerwise it ill overwrite it.
 \*/
 
 (function(){
@@ -20,10 +20,13 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "defaultValue"},
       {name: "showBrief"},
       {name: "fields"},
-      {name: "filter"}
+      {name: "filter"},
+      {name: "groupBy", default: "none"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter) {
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy) {
+    groupBy = $tw.wiki.renderText("text/plain","text/vnd.tiddlywiki",groupBy);
+
     const currentTiddler = this.getVariable("currentTiddler")
     if (!excludeCurrent) {
       tags += "," + currentTiddler
@@ -47,10 +50,10 @@ Write a simple list filter by a list of tags and with a + button in the header t
     // <$action-setfield $tiddler="$/tmp" $field="${tmpNewTiddlerField}" $value="${defaultValue}"/>`;
 
     // TODO: I don't know how to make the "default value" to work
-    const addButtonWT = addButton || `
+    const addButtonWT = addButton === "none" ? "" : (addButton || `
       <$keyboard key="enter" actions="""${saveActionsWT}""">
         <$edit-text tiddler="$/tmp" field="${tmpNewTiddlerField}" type="text" size="40" placeholder="enter a new ${title} here" default="${defaultValue}"/> 
-      </$keyboard>`;
+      </$keyboard>`);
   
     // TODO: show only part of it... a brief
     const briefWT = showBrief ? `
@@ -58,24 +61,52 @@ Write a simple list filter by a list of tags and with a + button in the header t
     <$view/>
     </span>` : "";
   
-    const finalWT = `
-      ${titleWT}
+    let listsWT = "";
+    
+    const listItemWT =
+      `<$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">        
+          <div class=<<goalClass>>>
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
+            <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
+          </div>
+        </$set>`;
+    
+    if (groupBy !== "none") {
+      const type = groupBy.replace("gsd_", "");
       
-      <div>
-        <$list filter="${filterTW} +[!has[draft.of]]">          
-          <$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">        
-            <div class=<<goalClass>>>
-              <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
-              <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
-              <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
-            </div>
-          </$set>
-        </$list>
-      </div>
-      
-      ${addButtonWT}
-    `;
-                
+      listsWT =      
+         `<$list filter="[field:gsd_type[${type}]]" variable=outer>
+           <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>] +[limit[1]]" variable=nothing>
+              <$link to=<<outer>>/><br/>
+              <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>]">
+                ${listItemWT}
+              </$list> 
+            </$list>   
+          </$list>
+          <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]] +[limit[1]]" variable=nothing>
+            No ${type} assigned <br/>
+            <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]]">
+              ${listItemWT}
+            </$list>
+          </$list>`;
+    } else {
+      listsWT = 
+         `<$list filter="${filterTW} +[!has[draft.of]]">          
+            ${listItemWT}
+          </$list>`;
+    }
+    
+    let finalWT = 
+      `<div>
+        ${titleWT}
+        <div>
+          ${listsWT}
+        </div>
+        
+        ${addButtonWT}
+      </div>`;
+
     return finalWT;
   };
 })();

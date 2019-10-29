@@ -9,10 +9,3 @@ tags: $:/tags/ViewTemplate
     </div>
   </div>
 </$list>
-
-<!-- Reference Dashboard -->
-<$list filter="[all[shadows+tiddlers]is[current]field:title[References]]">
-  <div class="tc-message-box">
-    <$checkbox tiddler="$:/plugins/sebastianovide/gsebd/ui/config/references-group-by" field="text" checked="gsd_project" unchecked="none">&nbsp;Group By Project</$checkbox>
-  </div>
-</$list>

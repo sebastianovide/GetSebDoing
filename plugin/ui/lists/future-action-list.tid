@@ -1,4 +1,5 @@
 title: $:/plugins/sebastianovide/gsebd/ui/lists/future-action-list
 caption: Future Actions
 
-<<gsebd-list title:"Future Action" gsd_type:"action" gsd_status:"future" sort:"title" order:"ascending" groupBy:{{$:/plugins/sebastianovide/gsebd/ui/config/dashboard-actions-group-by}} customFilter:"none" hideFutureProj:"true">>
+<<gsebd-simple-list title:"Future Actions" filter:[field:gsd_type[action]field:gsd_status[future]] addButton:none groupBy:gsd_project>>
+  

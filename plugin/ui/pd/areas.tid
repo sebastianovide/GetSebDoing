@@ -18,7 +18,7 @@ caption: Areas
 
   <div style="text-align: -webkit-center;">
     <div style="text-align: left; width: fit-content;">
-      <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="""Create your first <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/buttons/new-area" /> """ >
+      <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="No areas create yet" >
            <$wikify name="me_field" text=""" 
                 <$list filter="area satisfaction [<currentTiddler>] +[split[ ]join[_]lowercase[]] " variable="name">
                   <<name>>
@@ -26,9 +26,11 @@ caption: Areas
               """>            
               <<gsebd-satisfaction tiddler:"me" field:$(me_field)$>> 
            </$wikify>         
-        <$link to={{!!title}}>&nbsp;<$view field="title" format="text"/></$link>  
+        <$link to={{!!title}}>&nbsp;<$view field="title" format="text"/></$link> 
         <br/>
       </$list>
+      <br/>
+      {{$:/plugins/sebastianovide/gsebd/ui/buttons/new-area}}
     </div>
   </div>
 </div>

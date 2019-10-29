@@ -1,4 +1,4 @@
 title: $:/plugins/sebastianovide/gsebd/ui/lists/waiting-action-list
 caption: Waiting Actions
 
-<<gsebd-list title:"Waiting Action" gsd_type:"action" gsd_status:"waiting" sort:"title" order:"ascending" groupBy:{{$:/plugins/sebastianovide/gsebd/ui/config/dashboard-actions-group-by}} customFilter:"none" hideFutureProj:"true">>
+<<gsebd-simple-list title:"Waiting Actions" fields:"gsd_type=action gsd_status=waiting gsd_project={{!!title}}" filter:[field:gsd_type[action]field:gsd_status[waiting]] addButton:"<div></div>" groupBy:"gsd_project">>  

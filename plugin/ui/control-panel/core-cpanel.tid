@@ -6,4 +6,4 @@ caption: Core
 
 !!Dashboard Options
 
-<$checkbox tiddler="$:/plugins/sebastianovide/gsebd/ui/config/dashboard-actions-group-by" field="text" checked="gsd_project" unchecked="none"> Group Actions in Dashboard by Project</$checkbox><br/>
+<$checkbox tiddler="$:/plugins/sebastianovide/gsebd/ui/config/nothing" field="text" checked="nothing" unchecked="none"> Just a test. It doesn't configure anything</$checkbox><br/>
