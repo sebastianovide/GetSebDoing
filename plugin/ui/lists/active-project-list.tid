@@ -1,4 +1,4 @@
 title: $:/plugins/sebastianovide/gsebd/ui/lists/active-project-list
 caption: Active Projects
 
-<<gsebd-list title:"Active Projects" gsd_type:"project" gsd_status:"active" sort:"title" order:"ascending" groupBy:"none" customFilter:"none">>
+<<gsebd-simple-list title:"Active Projects" filter:"[field:gsd_type[project]field:gsd_status[active]]" addButton:"none">>

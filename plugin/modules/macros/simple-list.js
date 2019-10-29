@@ -6,7 +6,7 @@ module-type: macro
 Write a simple list filter by a list of tags and with a + button in the header to create a new item.
 
 @tags: is a list of tags coma separated. It accept spaces
-
+@addButton: if it is none, none add button will be added. If it is empy, the default will be used. Othwerwise it ill overwrite it.
 \*/
 
 (function(){
@@ -50,10 +50,10 @@ Write a simple list filter by a list of tags and with a + button in the header t
     // <$action-setfield $tiddler="$/tmp" $field="${tmpNewTiddlerField}" $value="${defaultValue}"/>`;
 
     // TODO: I don't know how to make the "default value" to work
-    const addButtonWT = addButton || `
+    const addButtonWT = addButton === "none" ? "" : (addButton || `
       <$keyboard key="enter" actions="""${saveActionsWT}""">
         <$edit-text tiddler="$/tmp" field="${tmpNewTiddlerField}" type="text" size="40" placeholder="enter a new ${title} here" default="${defaultValue}"/> 
-      </$keyboard>`;
+      </$keyboard>`);
   
     // TODO: show only part of it... a brief
     const briefWT = showBrief ? `
