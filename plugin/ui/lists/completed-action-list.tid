@@ -1,4 +1,4 @@
 title: $:/plugins/sebastianovide/gsebd/ui/lists/completed-action-list
 caption: Completed Actions
 
-<<gsebd-list title:"Completed Action" gsd_type:"action" gsd_status:"done" sort:"modified" order:"descending" groupBy:{{$:/plugins/sebastianovide/gsebd/ui/config/dashboard-actions-group-by}} customFilter:"none">>
+<<gsebd-list title:"Completed Action" gsd_type:"action" gsd_status:"done" sort:"modified" order:"descending" groupBy:"gsd_project" customFilter:"none">>

@@ -1,4 +1,4 @@
 title: $:/plugins/sebastianovide/gsebd/ui/lists/next-action-list
 caption: Next Actions
 
-<<gsebd-simple-list title:"Next Actions" fields:"gsd_type=action gsd_status=next gsd_project={{!!title}}" filter:[field:gsd_type[action]field:gsd_status[next]] addButton:"<div></div>" groupBy:{{$:/plugins/sebastianovide/gsebd/ui/config/dashboard-actions-group-by}}>>
+<<gsebd-simple-list title:"Next Actions" fields:"gsd_type=action gsd_status=next gsd_project={{!!title}}" filter:[field:gsd_type[action]field:gsd_status[next]] addButton:"<div></div>" groupBy:"gsd_project">>
