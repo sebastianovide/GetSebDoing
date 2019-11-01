@@ -3,9 +3,8 @@ tags: $:/tags/ViewTemplate
 
 <$list filter=[is[current]tag[Goal]]>
   <div class="tc-message-box gsd-plugin-box">    
-    <div class="gsd-plugin-core">
-      by when: <$edit-text field="due_date" type="date"/><br/>
+      by when: <$edit-text field="due_date" type="date"/>
       created: <$view field="created" format="date" template="MM/DD/YYYY"/> (<$view field="created" format="relativedate"/> )
-    </div>    
+      <progress max=<<gsebd-date-diff-days fromField:"created" toField:"due_date">> value=<<gsebd-date-diff-days fromField:"created" >>/>  
   </div>
 </$list>

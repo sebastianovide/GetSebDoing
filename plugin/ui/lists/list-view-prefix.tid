@@ -14,5 +14,5 @@ title: $:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix
 </$list>
 
 <$list filter=[is[current]tag[Goal]]>
-🏁<$list filter=[is[current]!field:due_date[]]>(by {{!!due_date}})</$list><$list filter=[is[current]field:due_date[]]>(goal date not set)</$list>
+🏁<$list filter=[is[current]!field:due_date[]]>(by {{!!due_date}}) <progress max=<<gsebd-date-diff-days fromField:"created" toField:"due_date">> value=<<gsebd-date-diff-days fromField:"created" >>/></$list><$list filter=[is[current]field:due_date[]]>(goal date not set)</$list>
 </$list>

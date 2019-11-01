@@ -68,7 +68,7 @@ Write a simple list filter by a list of tags and with a + button in the header t
           <div class=<<goalClass>>>
             <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
             <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
-            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>            
           </div>
         </$set>`;
     

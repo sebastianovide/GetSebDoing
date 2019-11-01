@@ -65,7 +65,7 @@ $title$
 
 <div class="row">
   <div>
-    <<gsebd-simple-list title:"Goals" tags:"Goal" showBrief:"yes" addButton:"<div></div>" excludeCurrent="true">>
+    <<gsebd-simple-list title:"Goals" tags:"Goal" addButton:"none" excludeCurrent="true">>
   </div>
 </div>
 

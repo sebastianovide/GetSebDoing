@@ -9,5 +9,5 @@ tags: $:/tags/ViewTemplate
     Write a motivating story about this area. What is it about ? What are your goals ?
     """ "help">>
 
-  <<gsebd-simple-list title:"Goals" tags:"Goal" fields:"gsd_type=action gsd_status=next">>
+  <<gsebd-simple-list title:"Goals" tags:"Goal" fields:"gsd_type=action gsd_status=next" showBrief:"yes">>
 </$list>
