@@ -2,20 +2,20 @@
 
 [![Build Status](https://travis-ci.org/sebastianovide/GettingSebDoing.svg?branch=master)](https://travis-ci.org/sebastianovide/GettingSebDoing)
 
-A Getting-Things-Done tool for the TiddlyWiki5 environment.
+A Purpose driven Getting-Things-Done tool
 
-GSEBD, or Getting-Seb-Doing, is a fork of [GSD5](https://github.com/roma0104/gsd5). It is a plugin for [TiddlyWiki5](http://tiddlywiki.com) *[(github)](https://github.com/Jermolene/TiddlyWiki5/)* that attempts to combine the workflow and philosophy of David Allen's **[Getting Things Done](http://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0142000280/)** with the TiddlyWiki5 platform.  GSEBD is heavily influenced by [mGSD](http://mgsd.tiddlyspot.com/) for TiddlyWiki classic.
+GSEBD, or Getting-Seb-Doing, is a fork of [GSD5](https://github.com/roma0104/gsd5). It is a plugin for [TiddlyWiki5](http://tiddlywiki.com) *[(github)](https://github.com/Jermolene/TiddlyWiki5/)* that attempts to combine the workflow and philosophy of David Allen's **[Getting Things Done](http://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0142000280/)** with your other personal development tools.
 
 #### Disclaimer
 GTD® and Getting Things Done® are registered trademarks of the [David Allen Company](http://www.davidco.com). GSEBD is not affiliated with or endorsed by the David Allen Company.
 
 # Obtaining
 
-To the fun stuff or at least more productive!
+It is not just to be more productive... but to reach your inner purpose.
 
-### Beta
+### Beta: for ever
 
-GSEBD is most definitely a work-in-progress project and beta quality.  There might be changes that might break from past versions in ways that make forward comptatiblity of user-created content non-trival to correct.
+GSEBD is most definitely a work-in-progress project and beta quality. There might be changes that might break from past versions in ways that make forward compatibility of user-created content non-trival to correct.
 
 * https://sebastianovide.github.io/GettingSebDoing/
 * https://github.com/sebastianovide/GettingSebDoing/releases/latest
