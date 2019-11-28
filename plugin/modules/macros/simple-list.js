@@ -21,7 +21,8 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "showBrief"},
       {name: "fields"},
       {name: "filter"},
-      {name: "groupBy", default: "none"}
+      {name: "groupBy", default: "none"},
+      {name: "sortBy", default: "none"}
   ];
 
   exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy) {
@@ -32,14 +33,19 @@ Write a simple list filter by a list of tags and with a + button in the header t
       tags += "," + currentTiddler
     }
     tags = tags.split(",").map(s => s.trim())
-    
+
+    let sortFilterTW = ""
+    if ( sortBy !== "none") {
+      sortFilterTW = ` +[sort[${sortBy}]]`
+    }
+
     const tag = tags[0]
     const tagsTW = tags.reduce((r, v) => r + (r === "" ? "" : " " ) + "[[" + v + "]]", "");
     const filterTags = tags.reduce((r, v) => r + (r === "" ? "" : " +" ) + "[tag[" + v + "]]", "");
-    const filterTW = filter || filterTags;
+    const filterTW = (filter || filterTags) + sortFilterTW;
     const tmpNewTiddlerField = `new_${currentTiddler}_${title}`.replace(/ /g,"_");
     const titleWT = title !== "" ? `<strong>${title}</strong><hr/>` : ""
-    
+
     const saveActionsWT = `
     <$action-createtiddler
         $basetitle={{$/tmp!!${tmpNewTiddlerField}}}
@@ -52,37 +58,37 @@ Write a simple list filter by a list of tags and with a + button in the header t
     // TODO: I don't know how to make the "default value" to work
     const addButtonWT = addButton === "none" ? "" : (addButton || `
       <$keyboard key="enter" actions="""${saveActionsWT}""">
-        <$edit-text tiddler="$/tmp" field="${tmpNewTiddlerField}" type="text" size="40" placeholder="enter a new ${title} here" default="${defaultValue}"/> 
+        <$edit-text tiddler="$/tmp" field="${tmpNewTiddlerField}" type="text" size="40" placeholder="enter a new ${title} here" default="${defaultValue}"/>
       </$keyboard>`);
-  
+
     // TODO: show only part of it... a brief
     const briefWT = showBrief ? `
     <span>
     <$view/>
     </span>` : "";
-  
+
     let listsWT = "";
-    
+
     const listItemWT =
-      `<$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">        
+      `<$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">
           <div class=<<goalClass>>>
             <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
             <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
-            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>            
+            <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
           </div>
         </$set>`;
-    
+
     if (groupBy !== "none") {
       const type = groupBy.replace("gsd_", "");
-      
-      listsWT =      
+
+      listsWT =
          `<$list filter="[field:gsd_type[${type}]]" variable=outer>
            <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>] +[limit[1]]" variable=nothing>
               <$link to=<<outer>>/><br/>
               <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}<outer>]">
                 ${listItemWT}
-              </$list> 
-            </$list>   
+              </$list>
+            </$list>
           </$list>
           <$list filter="${filterTW} +[!has[draft.of]] +[field:${groupBy}[]] +[limit[1]]" variable=nothing>
             No ${type} assigned <br/>
@@ -91,19 +97,19 @@ Write a simple list filter by a list of tags and with a + button in the header t
             </$list>
           </$list>`;
     } else {
-      listsWT = 
-         `<$list filter="${filterTW} +[!has[draft.of]]">          
+      listsWT =
+         `<$list filter="${filterTW} +[!has[draft.of]]">
             ${listItemWT}
           </$list>`;
     }
-    
-    let finalWT = 
+
+    let finalWT =
       `<div>
         ${titleWT}
         <div>
           ${listsWT}
         </div>
-        
+
         ${addButtonWT}
       </div>`;
 
