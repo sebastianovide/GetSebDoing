@@ -25,7 +25,7 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "sortBy", default: "none"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy) {
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy, sortBy) {
     groupBy = $tw.wiki.renderText("text/plain","text/vnd.tiddlywiki",groupBy);
 
     const currentTiddler = this.getVariable("currentTiddler")
