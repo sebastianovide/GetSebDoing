@@ -29,8 +29,8 @@
   "dependencies": {
     "chokidar-cli": "^2.0.0",
     "open-cli": "^5.0.0",
-    "semver": "^6.3.0",
-    "simple-git": "^1.126.0",
+    "semver": "^7.0.0",
+    "simple-git": "^1.129.0",
     "tiddlywiki": "^5.1.21"
   }
 }
