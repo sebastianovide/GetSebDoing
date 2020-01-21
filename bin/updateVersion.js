@@ -10,6 +10,12 @@ const fs = require('fs');
 
   const version = makeVersion(versions);
   fs.writeFileSync("./build/APP_VERSION", version);
+  const tiddlerVersion = `title: GetSebDoing Version
+type: text/vnd.tiddlywiki
+
+${version}`;
+  fs.writeFileSync("./build/tiddlers/GetSebDoing Version.tid", tiddlerVersion);
+
   writePluginInfo(version);
 })()
 
