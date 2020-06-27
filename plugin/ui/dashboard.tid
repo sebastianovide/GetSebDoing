@@ -1,4 +1,5 @@
 title: Dashboard
+tags: TableOfContents
 
 \define helpMission()
 <<helpButton $:/plugins/sebastianovide/gsebd/popups/helpMission """This is all about the ''WHY'' ?
