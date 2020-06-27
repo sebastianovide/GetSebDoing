@@ -9553,7 +9553,7 @@ Error message and password prompt
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div author="Sebastian Ovide" core-version="&gt;=5.1.21" dependents="" description="Getting Seb Doing" list="readme license" plugin-type="plugin" source="https://github.com/sebastianovide/GettingSebDoing" title="$:/plugins/sebastianovide/gsebd" type="application/json" version="1.2.7" revision="0" bag="default">
+<div author="Sebastian Ovide" core-version="&gt;=5.1.22" dependents="" description="Getting Seb Doing" list="readme license" plugin-type="plugin" source="https://github.com/sebastianovide/GettingSebDoing" title="$:/plugins/sebastianovide/gsebd" type="application/json" version="1.2.8" revision="0" bag="default">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/images/fa5/regular/question-circle&quot;: {
@@ -9727,12 +9727,6 @@ Error message and password prompt
         &quot;$:/plugins/sebastianovide/gsebd/modules/filters/fieldvalue.js&quot;: {
             &quot;title&quot;: &quot;$:/plugins/sebastianovide/gsebd/modules/filters/fieldvalue.js&quot;,
             &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/sebastianovide/gsebd/modules/filters/fieldvalue.js\ntype: application/javascript\nmodule-type: filteroperator\n\nFilter operator for returning the value of target field.  Does not take an argument/operand.\nA variation of the field filter found in TW5 core.\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\n/*\nExport our filter function\n*/\nexports._fieldvalue = function(source,operator,options) {\n    var results = [],\n        fieldname = (operator.operand || \&quot;title\&quot;).toLowerCase();\n    if(operator.prefix === \&quot;!\&quot;) {\n        source(function(tiddler,title) {\n            if(tiddler) {\n                var text = tiddler.getFieldString(fieldname);\n                if(text !== null) {\n                    results.push(text);;\n                }\n            }\n        });\n    } else {\n        source(function(tiddler,title) {\n            if(tiddler) {\n                var text = tiddler.getFieldString(fieldname);\n                if(text !== null) {\n                    results.push(text);\n                }\n            }\n        });\n    }\n    return results;\n};\n\n})();&quot;,
-            &quot;type&quot;: &quot;application/javascript&quot;,
-            &quot;module-type&quot;: &quot;filteroperator&quot;
-        },
-        &quot;$:/core/modules/filters/strings.js&quot;: {
-            &quot;title&quot;: &quot;$:/core/modules/filters/strings.js&quot;,
-            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/filters/strings.js\ntype: application/javascript\nmodule-type: filteroperator\n\nFilter operators for strings. Unary/binary operators work on each item in turn, and return a new item list.\n\nSum/product/maxall/minall operate on the entire list, returning a single item.\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nexports.length = makeStringBinaryOperator(\n\tfunction(a) {return [\&quot;\&quot; + (\&quot;\&quot; + a).length];}\n);\n\nexports.uppercase = makeStringBinaryOperator(\n\tfunction(a) {return [(\&quot;\&quot; + a).toUpperCase()];}\n);\n\nexports.lowercase = makeStringBinaryOperator(\n\tfunction(a) {return [(\&quot;\&quot; + a).toLowerCase()];}\n);\n\nexports.sentencecase = makeStringBinaryOperator(\n\tfunction(a) {return [$tw.utils.toSentenceCase(a)];}\n);\n\nexports.titlecase = makeStringBinaryOperator(\n\tfunction(a) {return [$tw.utils.toTitleCase(a)];}\n);\n\nexports.trim = makeStringBinaryOperator(\n\tfunction(a) {return [$tw.utils.trim(a)];}\n);\n\nexports.split = makeStringBinaryOperator(\n\tfunction(a,b) {return (\&quot;\&quot; + a).split(b);}\n);\n\nexports.join = makeStringReducingOperator(\n\tfunction(accumulator,value,operand) {\n\t\tif(accumulator === null) {\n\t\t\treturn value;\n\t\t} else {\n\t\t\treturn accumulator + operand + value;\n\t\t}\n\t},null\n);\n\nfunction makeStringBinaryOperator(fnCalc) {\n\treturn function(source,operator,options) {\n\t\tvar result = [];\n\t\tsource(function(tiddler,title) {\n\t\t\tArray.prototype.push.apply(result,fnCalc(title,operator.operand || \&quot;\&quot;));\n\t\t});\n\t\treturn result;\n\t};\n}\n\nfunction makeStringReducingOperator(fnCalc,initialValue) {\n\treturn function(source,operator,options) {\n\t\tvar result = [];\n\t\tsource(function(tiddler,title) {\n\t\t\tresult.push(title);\n\t\t});\n\t\treturn [result.reduce(function(accumulator,currentValue) {\n\t\t\treturn fnCalc(accumulator,currentValue,operator.operand || \&quot;\&quot;);\n\t\t},initialValue)];\n\t};\n}\n\nexports.splitregexp = function(source,operator,options) {\n\tvar result = [],\n\t\tsuffix = operator.suffix || \&quot;\&quot;,\n\t\tflags = (suffix.indexOf(\&quot;m\&quot;) !== -1 ? \&quot;m\&quot; : \&quot;\&quot;) + (suffix.indexOf(\&quot;i\&quot;) !== -1 ? \&quot;i\&quot; : \&quot;\&quot;),\n\t\tregExp;\n\ttry {\n\t\tregExp = new RegExp(operator.operand || \&quot;\&quot;,flags);\t\t\n\t} catch(ex) {\n\t\treturn [\&quot;RegExp error: \&quot; + ex];\n\t}\n\tsource(function(tiddler,title) {\n\t\tArray.prototype.push.apply(result,title.split(regExp));\n\t});\t\t\n\treturn result;\n};\n\n})();&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;module-type&quot;: &quot;filteroperator&quot;
         },
@@ -10462,7 +10456,7 @@ Error message and password prompt
 }</pre>
 </div>
 <div title="GetSebDoing Version" type="text/vnd.tiddlywiki" revision="0" bag="default">
-<pre>1.2.7</pre>
+<pre>1.2.8</pre>
 </div>
 <div title="More dependencies" type="text/vnd.tiddlywiki" revision="1" bag="default">
 <pre>Place dependencies not supported by npm in this folder
