@@ -7,5 +7,5 @@ caption: Buggers
   What is bugging you ? any feeling that you want to reshape ? for each of them, what are you going to do about it ?
   """/>
 
-  <<gsebd-simple-list title:"What's bugging you ?" tags:"Bugger" showBrief:"yes">>
+  <<gsebd-simple-list title:"What's bugging you ?" tags:"Bugger" showBrief:"yes" excludeCurrent:"true"  >>
 </div>
