@@ -28,9 +28,9 @@
   "homepage": "https://github.com/sebastianovide/GettingSebDoing#readme",
   "dependencies": {
     "chokidar-cli": "^2.0.0",
-    "open-cli": "^5.0.0",
-    "semver": "^7.0.0",
-    "simple-git": "^1.129.0",
+    "open-cli": "^6",
+    "semver": "^7",
+    "simple-git": "^2",
     "tiddlywiki": "^5.1.21"
   }
 }
