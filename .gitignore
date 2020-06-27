@@ -1,3 +1,4 @@
 build
 node_modules
 plugin/plugin.info
+.DS_Store

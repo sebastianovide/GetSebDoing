@@ -31,6 +31,6 @@
     "open-cli": "^6",
     "semver": "^7",
     "simple-git": "^2",
-    "tiddlywiki": "^5.1.21"
+    "tiddlywiki": "^5.1.22"
   }
 }
