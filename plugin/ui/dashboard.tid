@@ -64,9 +64,11 @@ $title$
 </div>
 
 <div class="row">
-  <div>
-    <<gsebd-simple-list title:"Goals" tags:"Goal" addButton:"none" excludeCurrent="true">>
-  </div>
+  {{$:/plugins/sebastianovide/gsebd/ui/pd/buggers}}
+</div>
+
+<div class="row">
+  <<gsebd-simple-list title:"Goals" tags:"Goal" addButton:"none" excludeCurrent="true">>
 </div>
 
 <div class="row">
