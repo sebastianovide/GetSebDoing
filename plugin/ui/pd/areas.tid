@@ -24,7 +24,7 @@ caption: Areas
                   <<name>>
                 </$list>
               """>            
-              <<gsebd-satisfaction tiddler:"me" field:$(me_field)$>> 
+              <<gsebd-satisfactionOLD tiddler:"me" field:$(me_field)$>> 
            </$wikify>         
         <$link to={{!!title}}>&nbsp;<$view field="title" format="text"/></$link> 
         <br/>

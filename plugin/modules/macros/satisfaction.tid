@@ -1,7 +1,14 @@
 title: $:/plugins/sebastianovide/gsebd/modules/macros/gsebd-satisfaction
 tags: $:/tags/Macro
 
-\define gsebd-satisfaction(field:"nothing")
+\define gsebd-satisfaction(tiddler:"tmp")
+  <$range tiddler="$tiddler$" index="tmp" min="-3" max="3" /> 
+  <$set name="satisfaction" tiddler="$tiddler$" index="tmp" emptyValue=0>
+    <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/config/levels" index=<<satisfaction>> />
+  </$set>
+\end
+
+\define gsebd-satisfactionOLD(field:"nothing")
   <$range tiddler="me" field=$field$ min="-3" max="3" /> 
   <$set name="satisfaction" tiddler="me" field=$field$ emptyValue=0>
     <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/config/levels" index=<<satisfaction>> />
