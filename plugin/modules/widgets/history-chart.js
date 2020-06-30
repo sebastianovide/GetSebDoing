@@ -19,7 +19,6 @@ module-type: widget
         this.initialise(parseTreeNode, options);
     };
 
-
     MyWidget.prototype = new Widget();
 
     MyWidget.prototype.render = function (parent, nextSibling) {
@@ -35,7 +34,6 @@ module-type: widget
         this.domNodes.push(divNode);
 
         const values = this.getAttribute("values", "{}");
-
         const json = JSON.parse(values);
         const jsonValid = _.pickBy(json, (v, k) => _.toString(k).length === 8);
 
@@ -46,14 +44,11 @@ module-type: widget
             const date = new Date(year, month, day);
             return { x: date, y };
         });
-
-
         const data = {
             series: [
                 serie
             ]
         };
-
         const options = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 fillHoles: true,

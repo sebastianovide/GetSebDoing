@@ -2,14 +2,26 @@ title: $:/plugins/sebastianovide/gsebd/ui/pd/areas
 tags: PD TableOfContents
 caption: Areas
 
+\define revert(tiddler)
+  <$action-setfield $tiddler="$tiddler$" $index="tmp" $value={{$tiddler$##latest}} />
+\end
+\define save(tiddler)
+  <$action-setfield $tiddler="$tiddler$" $index="latest" $value={{$tiddler$##tmp}} />
+  <$action-setfield $tiddler="$tiddler$" $index=<<now YYYY0MM0DD>> $value={{$tiddler$##tmp}} />
+\end
+
+\define filterMakeTiddlerName() area satisfaction [<currentTiddler>] +[split[ ]join[_]lowercase[]] 
+\define makeTiddlerName() <$list filter=<<filterMakeTiddlerName>> variable="name"><<name>></$list>
+
+
 <div style="display: inline-block; text-align: center;"}>
 
   !Areas
 
   <$wikify name="areas" text=""" 
         <$list filter="[field:gsd_type[area]]" >
-          <$list filter="area satisfaction [<currentTiddler>] +[split[ ]join[_]lowercase[]] " variable="name">
-            <$transclude tiddler="me" field=<<name>>>0</$transclude>
+          <$list filter=<<filterMakeTiddlerName>> variable="name">
+            <$transclude tiddler=<<name>> index="latest" >0</$transclude>
           </$list>
         </$list>      
       """>
@@ -19,18 +31,29 @@ caption: Areas
   <div style="text-align: -webkit-center;">
     <div style="text-align: left; width: fit-content;">
       <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="No areas create yet" >
-           <$wikify name="me_field" text=""" 
-                <$list filter="area satisfaction [<currentTiddler>] +[split[ ]join[_]lowercase[]] " variable="name">
-                  <<name>>
-                </$list>
-              """>            
-              <<gsebd-satisfactionOLD tiddler:"me" field:$(me_field)$>> 
+           <$wikify name="me_field" text=<<makeTiddlerName>>>        
+             <<gsebd-satisfaction tiddler:$(me_field)$>>
            </$wikify>         
         <$link to={{!!title}}>&nbsp;<$view field="title" format="text"/></$link> 
         <br/>
       </$list>
       <br/>
       {{$:/plugins/sebastianovide/gsebd/ui/buttons/new-area}}
+      <br/><br/>
+      <$button>save 
+        <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="No areas create yet" >
+            <$wikify name="me_field" text=<<makeTiddlerName>>>        
+              <<save $(me_field)$>>
+            </$wikify>         
+        </$list>
+      </$button>
+      <$button>revert
+        <$list filter="[field:gsd_type[area]!has[draft.of]]" emptyMessage="No areas create yet" >
+            <$wikify name="me_field" text=<<makeTiddlerName>>>        
+              <<revert $(me_field)$>>
+            </$wikify>         
+        </$list>
+      </$button>
     </div>
   </div>
 </div>
