@@ -19,7 +19,7 @@ Projects without Next Actions
       </$link>
     </span>
     <$list filter=[is[current]!field:text[]]>
-      &nbsp;<$transclude tiddler="$:/plugins/sebastianovide/gsebd/images/excerpt"/>
+      &nbsp;<$transclude tiddler="$:/plugins/sebastianovide/gsebd/lib/@mdi/message-settings-outline"/>
     </$list>
   </div>
 </$list>

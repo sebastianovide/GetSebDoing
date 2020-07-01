@@ -11,7 +11,7 @@ description: Add new action
     </$set>
 
     <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
-        {{$:/plugins/sebastianovide/gsebd/images/task}}
+        {{$:/plugins/sebastianovide/gsebd/lib/@mdi/check-box-outline}}
     </$list>
     <$list filter="[<tv-config-toolbar-text>prefix[yes]]">
         <$text text="new action"/>

@@ -2,7 +2,7 @@ title: $:/plugins/sebastianovide/gsebd/modules/macros/buttons
 tags: $:/tags/Macro
 
 \define helpButton(popup, text)
-<$button popup="$popup$" class="gsd-help-button">{{$:/images/fa5/regular/question-circle}}</$button>
+<$button popup="$popup$" class="gsd-help-button">{{$:/plugins/sebastianovide/gsebd/lib/@mdi/help}}</$button>
 <$reveal type="popup" state="$popup$" class="tc-notification gsd-help-popup">
 
 $text$ 
