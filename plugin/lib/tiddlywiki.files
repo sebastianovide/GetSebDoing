@@ -51,17 +51,16 @@
 			"file": "../../node_modules/@mdi/svg/LICENSE",
 			"fields": {
 				"type": "text/plain",
-				"title": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/LICENSE"
+				"title": "$:/plugins/sebastianovide/gsebd/lib/@mdi/LICENSE"
 			}
 		}
-
 	],
 	"directories": [{
 		"path": "../../node_modules/@mdi/svg/svg",
 		"filesRegExp": "^.*\\.svg$",
 		"isTiddlerFile": false,
 		"fields": {
-			"title": {"source": "filename", "prefix": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/svg/"},
+			"title": {"source": "basename", "prefix": "$:/plugins/sebastianovide/gsebd/lib/@mdi/"},
 			"type": "image/svg+xml"
 		}
 	}] 
