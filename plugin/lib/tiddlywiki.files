@@ -38,6 +38,31 @@
 				"type": "text/plain",
 				"title": "$:/plugins/sebastianovide/gsebd/lib/chartist/LICENSE"
 			}
+		},
+
+		{
+			"file": "../../node_modules/@mdi/svg/svg/chart-line.svg",
+			"fields": {
+				"type": "image/svg+xml",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/svg/chart-line.svg"
+			}
+		},
+		{
+			"file": "../../node_modules/@mdi/svg/LICENSE",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/LICENSE"
+			}
+		},
+
+	],
+	"directories": [{
+		"path": "../../node_modules/@mdi/svg/svg",
+		"filesRegExp": "^.*\\.svg$",
+		"isTiddlerFile": false,
+		"fields": {
+			"title": {"source": "filename", "prefix": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/svg/"},
+			"type": "image/svg+xml"
 		}
-	]
+	}] 
 }

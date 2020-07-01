@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/sebastianovide/GettingSebDoing#readme",
   "dependencies": {
+    "@mdi/svg": "^5.3.45",
     "chartist": "^0.11.4",
     "chokidar-cli": "^2.0.0",
     "lodash": "^4.17.15",
