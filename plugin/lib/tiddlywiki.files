@@ -1,0 +1,68 @@
+  
+{
+	"tiddlers": [
+		{
+			"file": "../../node_modules/lodash/lodash.min.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/lodash/lodash.min.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "../../node_modules/lodash/LICENSE",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/lodash/LICENSE"
+			}
+		},
+        {
+			"file": "../../node_modules/chartist/dist/chartist.min.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/chartist/chartist.min.js",
+				"module-type": "library"
+			}
+		},
+        {
+			"file": "../../node_modules/chartist/dist/chartist.min.css",
+			"fields": {
+				"type": "text/css",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/chartist/chartist.min.css",
+				"tags": "[[$:/tags/Stylesheet]]"
+			}
+		},
+        {
+			"file": "../../node_modules/chartist/LICENSE-MIT",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/chartist/LICENSE"
+			}
+		},
+
+		{
+			"file": "../../node_modules/@mdi/svg/svg/chart-line.svg",
+			"fields": {
+				"type": "image/svg+xml",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/svg/chart-line.svg"
+			}
+		},
+		{
+			"file": "../../node_modules/@mdi/svg/LICENSE",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/LICENSE"
+			}
+		},
+
+	],
+	"directories": [{
+		"path": "../../node_modules/@mdi/svg/svg",
+		"filesRegExp": "^.*\\.svg$",
+		"isTiddlerFile": false,
+		"fields": {
+			"title": {"source": "filename", "prefix": "$:/plugins/sebastianovide/gsebd/lib/@mdi/svg/svg/"},
+			"type": "image/svg+xml"
+		}
+	}] 
+}
