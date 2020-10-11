@@ -28,13 +28,13 @@
   },
   "homepage": "https://github.com/sebastianovide/GettingSebDoing#readme",
   "dependencies": {
-    "@mdi/svg": "^5.5.55",
+    "@mdi/svg": "^5.6.55",
     "chartist": "^0.11.4",
     "chokidar-cli": "^2.0.0",
     "lodash": "^4.17.20",
     "open-cli": "^6",
     "semver": "^7",
-    "simple-git": "^2.20.1",
+    "simple-git": "^2.21.0",
     "tiddlywiki": "^5.1.22"
   }
 }
