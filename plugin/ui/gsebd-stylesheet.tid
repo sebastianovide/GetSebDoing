@@ -35,6 +35,11 @@ tags: $:/tags/Stylesheet
   margin-left: 0.5em;
 }
 
+.list-date {
+  color: gray;
+  font-size: xx-small;
+}
+
 .next input[type="radio"]:checked + span {
   background-color: red;
   color: white;

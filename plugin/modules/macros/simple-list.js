@@ -22,11 +22,12 @@ Write a simple list filter by a list of tags and with a + button in the header t
       {name: "fields"},
       {name: "filter"},
       {name: "groupBy", default: "none"},
-      {name: "sortBy", default: "none"}
+      {name: "sortBy", default: "none"},
+      {name: "showDate"}
   ];
 
-  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy, sortBy) {
-    groupBy = $tw.wiki.renderText("text/plain","text/vnd.tiddlywiki",groupBy);
+  exports.run = function(title, tags, excludeCurrent, addButton, defaultValue, showBrief, fields, filter, groupBy, sortBy, showDate) {    
+    groupBy = $tw.wiki.renderText("text/plain", "text/vnd.tiddlywiki", groupBy);
 
     const currentTiddler = this.getVariable("currentTiddler")
     if (!excludeCurrent) {
@@ -69,11 +70,13 @@ Write a simple list filter by a list of tags and with a + button in the header t
 
     let listsWT = "";
 
+    const showDateTW = !!showDate ? '<span class="list-date"><$view field="created" format="date" template="DDD, DDth mmm YYYY 0hh:0mm:0ss"/></span>' : "";
     const listItemWT =
       `<$set name="goalClass" filter="[is[current]tag[Goal]]" value="list-item goal" emptyValue="list-item">
           <div class=<<goalClass>>>
             <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewPrefix"/>
             <span class="list-link"><$link to={{!!title}}><$view field="title"/></$link>${briefWT}</span>
+            ${showDateTW}
             <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/lists/ListViewSuffix"/>
           </div>
         </$set>`;
