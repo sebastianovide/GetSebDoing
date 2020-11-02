@@ -7,5 +7,5 @@ caption: Blockers
   What is holding you back ? for each of them, what are you going to do about it ?
   """/>
 
-  <<gsebd-simple-list title:"Blockers ?" tags:"Blocker" showBrief:"yes" excludeCurrent:"true" >>
+  <<gsebd-simple-list title:"Blockers ?" tags:"Blocker" showBrief:"yes" excludeCurrent:"true" showDate:"true">>
 </div>
