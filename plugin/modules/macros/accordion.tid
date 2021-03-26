@@ -3,7 +3,7 @@ tags: $:/tags/Macro
 
 \define gsebd-accordion(body, caption:"?", heading:"h2")
   <div class="tc-message-box gsd-plugin-box">    
-    <div class="gsd-plugin-core">  
+    <div class="gsd-plugin-core">
       <$set name="revealState" value=<<qualify "$:/state/gsebd-accordion/$(currentTiddler)$/$caption$">>>
         <$heading$>
           <small>
@@ -16,7 +16,7 @@ tags: $:/tags/Macro
               <$button class="tc-btn-invisible tc-tiddlylink" set=<<revealState>> setTo="no">
                 {{$:/core/images/down-arrow}}
               </$button>
-            </$reveal> 
+            </$reveal>
           </small>
           <span>$caption$</span>
         </$heading$>

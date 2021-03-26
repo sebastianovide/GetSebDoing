@@ -187,6 +187,10 @@ tags: $:/tags/Stylesheet
   border: none;
 }
 
+.no-border {
+  border: none !important;
+}
+
 .row {
   display: flex;
   justify-content: space-evenly;
