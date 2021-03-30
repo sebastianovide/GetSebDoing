@@ -2,7 +2,7 @@ title: $:/plugins/sebastianovide/gsebd/ui/addins/ViewBody-Area
 tags: $:/tags/ViewTemplate
 
 <!-- Area -->
-<$list filter="[is[current]field:gsd_type[area]]">  
+<$list filter="[is[current]field:gsd_type[area]]">
   <<gsebd-accordion """
     ''Write a description about this:''
 
@@ -10,4 +10,5 @@ tags: $:/tags/ViewTemplate
     """ "help">>
 
   <<gsebd-simple-list title:"Goals" tags:"Goal" fields:"gsd_type=action gsd_status=next" showBrief:"yes">>
+<br/>
 </$list>

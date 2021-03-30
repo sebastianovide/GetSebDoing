@@ -2,7 +2,7 @@ title: $:/plugins/sebastianovide/gsebd/ui/addins/ViewBody-Action
 tags: $:/tags/ViewTemplate
 
 <!-- Action -->
-<$list filter="[is[current]field:gsd_type[action]]">  
+<$list filter="[is[current]field:gsd_type[action]]">
   <<gsebd-accordion """
     ''Write a description about this:''
 
@@ -12,12 +12,11 @@ tags: $:/tags/ViewTemplate
     """ "help">>
 
   <div class="tc-message-box gsd-plugin-box">
-    <div class="gsd-plugin-core">      
+    <div class="gsd-plugin-core">
       <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/addins/ViewStatus"/>
       <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/buttons/convert-action-button"/>
       <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/addins/ViewPrereq"/>
       <$transclude tiddler="$:/plugins/sebastianovide/gsebd/ui/addins/ViewContact"/>
     </div>
   </div>
-    
 </$list>

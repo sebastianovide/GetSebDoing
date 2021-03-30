@@ -21,10 +21,10 @@ $title$
 </$button>
 \end
 
-<div class="row">  
+<div class="row tc-message-box">
   <div>
-    <div style="text-align: center;"> 
-      
+    <div style="text-align: center;">
+
       !<$list filter="[[Mission Statement]is[tiddler]]" emptyMessage='<<newButton title:"Mission Statement" text:"To Be Happy every day">>' >
     [[Mission Statement]]
       </$list><<helpMission>>
@@ -39,10 +39,10 @@ $title$
   </div>
 </div>
 
-<div class="row">  
+<div class="row tc-message-box">
   <div>
-    
-    <div style="text-align: center;"> 
+
+    <div style="text-align: center;">
 
       !<$list filter="[[Vision Statement]is[tiddler]]" emptyMessage='<<newButton title:"Vision Statement" text:"To Have a Lovely Family in a lovely home">>' >
       [[Vision Statement]]
@@ -55,39 +55,39 @@ $title$
   </div>
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/life-line}}
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/areas}}
   {{$:/plugins/sebastianovide/gsebd/ui/pd/humanNeeds}}
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/buggers}}
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   <<gsebd-simple-list title:"Goals" tags:"Goal" addButton:"none" excludeCurrent="true">>
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/blockers}}
 </div>
 
-<div class="row">
-  {{Action Dashboard}}  
+<div class="row tc-message-box">
+  {{Action Dashboard}}
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{Project Dashboard}}
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{Completed Dashboard}}
 </div>
 
-<div class="row">
+<div class="row tc-message-box">
   {{$:/plugins/sebastianovide/gsebd/ui/lists/contacts-list}}
 </div>

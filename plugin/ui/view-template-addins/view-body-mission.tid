@@ -10,7 +10,7 @@ tags: $:/tags/ViewTemplate
     From there think about the ''WHY'' do you or did you like those things ?
     """ "help">>
 
-  <div class="row">
+  <div class="row tc-message-box">
     <div class="col">
       <div class="tw-menu-list-item">
         <<gsebd-simple-list title:"Likes" tags:"Like">>
