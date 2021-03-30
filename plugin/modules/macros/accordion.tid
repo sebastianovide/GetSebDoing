@@ -2,7 +2,7 @@ title: $:/plugins/sebastianovide/gsebd/modules/macros/gsebd-accordion
 tags: $:/tags/Macro
 
 \define gsebd-accordion(body, caption:"?", heading:"h2")
-  <div class="tc-message-box gsd-plugin-box">    
+  <div class="accordion gsd-plugin-box">    
     <div class="gsd-plugin-core">
       <$set name="revealState" value=<<qualify "$:/state/gsebd-accordion/$(currentTiddler)$/$caption$">>>
         <$heading$>
