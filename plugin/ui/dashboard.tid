@@ -21,7 +21,7 @@ $title$
 </$button>
 \end
 
-<div class="row tc-message-box">
+<div class="row">
   <div>
     <div style="text-align: center;">
 
@@ -39,7 +39,7 @@ $title$
   </div>
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   <div>
 
     <div style="text-align: center;">
@@ -55,39 +55,39 @@ $title$
   </div>
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/life-line}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/areas}}
   {{$:/plugins/sebastianovide/gsebd/ui/pd/humanNeeds}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/buggers}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   <<gsebd-simple-list title:"Goals" tags:"Goal" addButton:"none" excludeCurrent="true">>
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/pd/blockers}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{Action Dashboard}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{Project Dashboard}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{Completed Dashboard}}
 </div>
 
-<div class="row tc-message-box">
+<div class="row">
   {{$:/plugins/sebastianovide/gsebd/ui/lists/contacts-list}}
 </div>

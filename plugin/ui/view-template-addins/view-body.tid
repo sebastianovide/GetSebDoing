@@ -2,7 +2,7 @@ title: $:/plugins/sebastianovide/gsebd/ui/addins/ViewBody
 tags: $:/tags/ViewTemplate
 
 <$list filter="[tag{!!title}!tag[Journal]] [tag{!!title}tag[Journal]] +[first[]]" variable="nothing">
-  <div class="row tc-message-box">
+  <div class="row">
     <$macrocall $name=gsebd-accordion caption="journal entries <$transclude tiddler='$:/core/ui/Buttons/new-journal-here'/>" body="""
         <<gsebd-simple-list tags:"Journal" sortBy:"created" addButton:"none">>
     """/>
